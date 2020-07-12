@@ -9,8 +9,13 @@ df = df.join(df["diagnosis"].apply(pd.Series))
 df = df.drop(columns=["diagnosis", "P_MRN_ID", "E_ID"])
 df["DIAG_DATE"] = pd.to_datetime(df["DIAG_DATE"])
 
+# Create rows, one for each patient
+rows = []
+patient_ids: list = df.P_ID.unique()
+for patient_id in patient_ids:
+    rows.append([patient_id])
+print(rows)
+
 # Get earliest year and latest year
-earliest_year = int(min(df.DIAG_DATE).strftime("%Y"))
-latest_year = int(max(df.DIAG_DATE).strftime("%Y"))
-
-
+earliest_year: int = int(min(df.DIAG_DATE).strftime("%Y"))
+latest_year: int = int(max(df.DIAG_DATE).strftime("%Y"))
