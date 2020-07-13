@@ -24,18 +24,24 @@ column_names = ["P_ID"]
 # Iterate through year intervals
 current_year: int = earliest_year
 while current_year <= latest_year:
-    column_names.append(str(current_year) + "–" + str(current_year + 1)
-                        if current_year != latest_year
-                        else str(latest_year))
+    column_names.append(
+        str(current_year) + "–" + str(current_year + 1)
+        if current_year != latest_year
+        else str(latest_year)
+    )
     for row in rows:
-        interval_diagnoses: pd.DataFrame = df.query("P_ID == @row[0]"
-                                                    "and (YEAR == @current_year or YEAR == @current_year + 1)")
+        interval_diagnoses: pd.DataFrame = df.query(
+            "P_ID == @row[0]" "and (YEAR == @current_year or YEAR == @current_year + 1)"
+        )
         if interval_diagnoses.empty:
             row.append(None)
         else:
-            result = [str(code) + "⁠—" + str(name)
-                      for code, name
-                      in zip(interval_diagnoses["DX_CODE"], interval_diagnoses["DX_NM"])]
+            result = [
+                str(code) + "⁠—" + str(name)
+                for code, name in zip(
+                    interval_diagnoses["DX_CODE"], interval_diagnoses["DX_NM"]
+                )
+            ]
             row.append(";".join(result))
     current_year += 2
 
