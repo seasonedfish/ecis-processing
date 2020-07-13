@@ -24,19 +24,19 @@ latest_year: int = max(df.YEAR)
 column_names = ["P_ID"]
 for current_year in range(earliest_year, latest_year + 1, 2):
     column_names.append(
-        str(current_year) + "–" + str(current_year + 1)
+        f"{current_year}–{current_year + 1}"
         if current_year != latest_year
         else str(latest_year)
     )
     for row in rows:
         interval_diagnoses: pd.DataFrame = df.query(
-            "P_ID == @row[0]" "and (YEAR == @current_year or YEAR == @current_year + 1)"
+            "P_ID == @row[0] and (YEAR == @current_year or YEAR == @current_year + 1)"
         )
         if interval_diagnoses.empty:
             row.append(None)
         else:
             result = [
-                str(code) + "⁠—" + str(name)
+                f"{code}⁠—{name}"
                 for code, name in zip(
                     interval_diagnoses["DX_CODE"], interval_diagnoses["DX_NM"]
                 )
@@ -45,5 +45,5 @@ for current_year in range(earliest_year, latest_year + 1, 2):
 
 # Create new DataFrame from rows and save to csv
 df_processed = pd.DataFrame(rows, columns=column_names)
-print("Done! Processed data saved to " + file_output)
+print(f"Done! Processed data saved to {file_output}")
 df_processed.to_csv(file_output, index=False)
