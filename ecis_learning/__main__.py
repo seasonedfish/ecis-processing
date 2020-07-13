@@ -1,4 +1,5 @@
 import pandas as pd
+from typing import List
 
 file_input: str = "STC_dx.json"
 file_output: str = "processed.csv"
@@ -10,8 +11,8 @@ df["YEAR"] = pd.to_numeric(df["DIAG_DATE"].str.slice(0, 4))
 df = df.drop(columns=["data", "P_MRN_ID", "E_ID", "DIAG_DATE"])
 
 # Create rows for new DataFrame, one for each patient
-rows = []
-patient_ids: list = df.P_ID.unique()
+rows: List[list] = []
+patient_ids: List[str] = df.P_ID.unique()
 for patient_id in patient_ids:
     rows.append([patient_id])
 
@@ -21,7 +22,7 @@ latest_year: int = max(df.YEAR)
 
 # Iterate through year intervals and add data to rows
 # Also get names of columns
-column_names = ["P_ID"]
+column_names: List[str] = ["P_ID"]
 for current_year in range(earliest_year, latest_year + 1, 2):
     column_names.append(
         f"{current_year}–{current_year + 1}"
@@ -44,6 +45,6 @@ for current_year in range(earliest_year, latest_year + 1, 2):
             row.append(";".join(result))
 
 # Create new DataFrame from rows and save to csv
-df_processed = pd.DataFrame(rows, columns=column_names)
+df_processed: pd.DataFrame = pd.DataFrame(rows, columns=column_names)
 print(f"Done! Processed data saved to {file_output}")
 df_processed.to_csv(file_output, index=False)
