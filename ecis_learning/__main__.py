@@ -22,8 +22,7 @@ latest_year: int = max(df.YEAR)
 
 column_names = ["P_ID"]
 # Iterate through year intervals
-current_year: int = earliest_year
-while current_year <= latest_year:
+for current_year in range(earliest_year, latest_year + 1, 2):
     column_names.append(
         str(current_year) + "–" + str(current_year + 1)
         if current_year != latest_year
@@ -43,7 +42,6 @@ while current_year <= latest_year:
                 )
             ]
             row.append(";".join(result))
-    current_year += 2
 
 df_processed = pd.DataFrame(rows, columns=column_names)
 print("Done! Processed data saved to " + file_output)
