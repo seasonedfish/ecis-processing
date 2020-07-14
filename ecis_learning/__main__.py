@@ -7,7 +7,7 @@ file_output: str = "processed.csv"
 # Read json and separate data into columns to create initial DataFrame
 df: pd.DataFrame = pd.read_json(file_input)
 df = df.join(df["data"].apply(pd.Series))
-df["YEAR"] = pd.to_numeric(df["DIAG_DATE"].str.slice(0, 4))
+df["YEAR"] = pd.DatetimeIndex(df["DIAG_DATE"]).year
 df = df.drop(columns=["data", "P_MRN_ID", "E_ID", "DIAG_DATE"])
 
 # Create rows for new DataFrame, one for each patient
