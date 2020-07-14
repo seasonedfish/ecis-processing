@@ -12,13 +12,13 @@ df = df.drop(columns=["data", "P_MRN_ID", "E_ID", "DIAG_DATE"])
 
 # Create rows for new DataFrame, one for each patient
 rows: List[list] = []
-patient_ids: List[str] = df.P_ID.unique()
+patient_ids: List[str] = df["P_ID"].unique()
 for patient_id in patient_ids:
     rows.append([patient_id])
 
 # Get earliest year and latest year
-earliest_year: int = min(df.YEAR)
-latest_year: int = max(df.YEAR)
+earliest_year: int = min(df["YEAR"])
+latest_year: int = max(df["YEAR"])
 
 # Iterate through year intervals and add data to rows
 # Also get names of columns
