@@ -3,8 +3,8 @@ import argparse
 import pathlib
 import os
 
-from ecis_learning import diagnoses
-from ecis_learning import medications
+from ecis_learning.diagnosis_data_processor import DiagnosisDataProcessor
+from ecis_learning.medication_data_processor import MedicationDataProcessor
 
 
 def parse_arguments():
@@ -33,18 +33,15 @@ def dir_path(path):
 
 def main():
     args = parse_arguments()
-
-    diagnoses_input = args.DIRECTORY / "Diagnoses" / "STC_dx.json"
-    diagnoses_column_names, diagnoses_rows = diagnoses.process_data(
-        json_file=diagnoses_input
-    )
+    diagnosis_input = args.DIRECTORY / "Diagnoses" / "STC_dx.json"
+    my_diagnosis_data_processor = DiagnosisDataProcessor(diagnosis_input)
+    diagnoses_df = my_diagnosis_data_processor.process_data()
 
     allscripts_input = args.DIRECTORY / "Medications_Allscripts" / "STC_meds_alls_180710.json"
     epic_input = args.DIRECTORY / "Medications_EPIC" / "STC_meds_e_180710.json"
     soarian_input = args.DIRECTORY / "Medications_Soarian" / "STC_meds_soarian_180710.json"
-    medications.process_data(
-        allscripts_input, epic_input, soarian_input
-    )
+    my_medication_data_processor = MedicationDataProcessor(allscripts_input, epic_input, soarian_input)
+    medications_df = my_diagnosis_data_processor.process_data()
 
     # Create new DataFrame from rows and save to csv
     # df_processed: pd.DataFrame = pd.DataFrame(rows, columns=column_names)
