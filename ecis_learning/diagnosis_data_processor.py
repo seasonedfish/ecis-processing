@@ -8,7 +8,7 @@ class DiagnosisDataProcessor(DataProcessor):
         df = df.join(df["data"].apply(pd.Series))
         df["YEAR"] = pd.DatetimeIndex(df["DIAG_DATE"]).year
         df = df.drop(columns=["data", "P_MRN_ID", "E_ID", "DIAG_DATE"])
-        df.columns = ["dx_code", "year", "patient_id", "dx_name"]
+        df.columns = ["dx_code", "patient_id", "dx_name", "year"]
 
         super().__init__(df)
 
