@@ -41,7 +41,7 @@ def main():
     epic_input = args.DIRECTORY / "Medications_EPIC" / "STC_meds_e_180710.json"
     soarian_input = args.DIRECTORY / "Medications_Soarian" / "STC_meds_soarian_180710.json"
     my_medication_data_processor = MedicationDataProcessor(allscripts_input, epic_input, soarian_input)
-    medications_df = my_medication_data_processor.process_data(["rx_name", "rx_code", "source", "status"], "rx")
+    medications_df = my_medication_data_processor.process_data(["rx_name", "rx_code", "source", "rx_status"], "rx")
 
     print(diagnoses_df)
     print(medications_df)

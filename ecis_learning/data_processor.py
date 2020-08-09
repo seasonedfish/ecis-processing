@@ -15,8 +15,8 @@ class DataProcessor:
             rows.append([patient_id])
 
         # Get earliest year and latest year
-        earliest_year: int = min(self.Data["year"])
-        latest_year: int = max(self.Data["year"])
+        earliest_year: int = int(min(self.Data["year"]))
+        latest_year: int = int(max(self.Data["year"]))
 
         # Iterate through year intervals and add data to rows
         # Also get names of columns
@@ -25,7 +25,7 @@ class DataProcessor:
             column_names.append(
                 f"{prefix}{current_year}–{current_year + 1}"
                 if current_year != latest_year
-                else str(latest_year)
+                else f"{prefix}{latest_year}"
             )
             for row in rows:
                 interval_df: pd.DataFrame = self.Data.query(
@@ -34,12 +34,12 @@ class DataProcessor:
                 if interval_df.empty:
                     row.append(None)
                 else:
-                    result = [
+                    result = (
                         "#".join(map(str, values))
                         for values in zip(
                             *(interval_df[column] for column in columns)
                         )
-                    ]
+                    )
                     row.append(";".join(result))
 
         return pd.DataFrame(rows, columns=column_names)
