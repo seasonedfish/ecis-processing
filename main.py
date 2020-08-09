@@ -14,11 +14,11 @@ def parse_arguments():
     parser.add_argument(
         "DIRECTORY",
         type=dir_path,
-        help="Path to input directory")
+        help="path to input directory")
     parser.add_argument(
         "-o",
         "--output",
-        help="Output file name, defaults to 'processed.csv'",
+        help="output file name, defaults to 'processed.csv'",
         default="processed.csv",
     )
     return parser.parse_args()
