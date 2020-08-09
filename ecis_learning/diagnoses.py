@@ -32,7 +32,7 @@ def process_data(json_file):
     column_names: List[str] = ["P_ID"]
     for current_year in range(earliest_year, latest_year + 1, 2):
         column_names.append(
-            f"{current_year}–{current_year + 1}"
+            f"DX{current_year}–{current_year + 1}"
             if current_year != latest_year
             else str(latest_year)
         )

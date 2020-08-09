@@ -1,9 +1,10 @@
 import pandas as pd
 import numpy as np
+from typing import List
 
 
 def get_initial_df(
-    json_file, time_key, id_key, name_key, code_key, status_key, source
+    json_file, time_key: str, id_key: str, name_key: str, code_key: str, status_key: str, source: str
 ) -> pd.DataFrame:
     """
     Extract medication data from json into an initial, unprocessed DataFrame.
@@ -21,7 +22,7 @@ def get_initial_df(
     df = df.join(df["data"].apply(pd.Series))
     df[time_key] = pd.DatetimeIndex(df[time_key]).year
 
-    df_new = df[[time_key, id_key, name_key]].copy()
+    df_new: pd.DataFrame = df[[time_key, id_key, name_key]].copy()
     df_new["code"] = df[code_key] if code_key is not None else "N/A"
     if status_key == "Active":
         # Special case for Epic data
@@ -65,3 +66,44 @@ def process_data(allscripts_json_file, epic_json_file, soarian_json_file):
         None,
         "S",
     )
+
+    df_combined = pd.concat([df_allscripts, df_epic, df_soarian], ignore_index=True)
+    print(df_combined)
+
+    # Create rows for new DataFrame, one for each patient
+    rows: List[list] = []
+    patient_ids: List[str] = df_combined["id"].unique()
+    for patient_id in patient_ids:
+        rows.append([patient_id])
+
+    # Get earliest year and latest year
+    earliest_year: int = min(df_initial["YEAR"])
+    latest_year: int = max(df_initial["YEAR"])
+
+    # Iterate through year intervals and add data to rows
+    # Also get names of columns
+    column_names: List[str] = ["P_ID"]
+    for current_year in range(earliest_year, latest_year + 1, 2):
+        column_names.append(
+            f"DX{current_year}–{current_year + 1}"
+            if current_year != latest_year
+            else str(latest_year)
+        )
+        for row in rows:
+            interval_diagnoses: pd.DataFrame = df_initial.query(
+                "P_ID == @row[0] and (YEAR == @current_year or YEAR == @current_year + 1)"
+            )
+            if interval_diagnoses.empty:
+                row.append(None)
+            else:
+                result = [
+                    f"{code}⁠—{name}"
+                    for code, name in zip(
+                        interval_diagnoses["DX_CODE"], interval_diagnoses["DX_NM"]
+                    )
+                ]
+                row.append(";".join(result))
+
+    return column_names, rows
+
+    print(rows)
