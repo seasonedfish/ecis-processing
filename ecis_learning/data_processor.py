@@ -26,30 +26,28 @@ class DataProcessor:
                 if current_year != latest_year
                 else f"{latest_year}_{suffix}"
             )
-            for row in rows:
-                interval_df: pd.DataFrame = self.Data.query(
-                    "patient_id == @row[0] and (year == @current_year or year == @current_year + 1)"
-                )
-                self.append_values(row, interval_df, columns)
+            self.append_values(
+                rows,
+                f"patient_id == @row[0] and (year == {current_year} or year == {current_year} + 1)",
+                columns)
 
         # NaN year case
         column_names.append(f"unknown_time_{suffix}")
-        for row in rows:
-            interval_df: pd.DataFrame = self.Data.query(
-                "patient_id == @row[0] and year.isnull()"
-            )
-            self.append_values(row, interval_df, columns)
+        self.append_values(rows, "patient_id == @row[0] and year.isnull()", columns)
+
         return pd.DataFrame(rows, columns=column_names)
 
-    @staticmethod
-    def append_values(row, df, columns):
-        if df.empty:
-            row.append(None)
-        else:
-            result = (
-                "#".join(map(str, values))
-                for values in zip(
-                    *(df[column] for column in columns)
+    def append_values(self, rows, query, columns):
+        for row in rows:
+            interval_df: pd.DataFrame = self.Data.query(query)
+
+            if interval_df.empty:
+                row.append(None)
+            else:
+                result = (
+                    "#".join(map(str, values))
+                    for values in zip(
+                        *(interval_df[column] for column in columns)
+                    )
                 )
-            )
-            row.append("; ".join(result))
+                row.append("; ".join(result))
