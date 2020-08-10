@@ -12,5 +12,3 @@ class DiagnosisDataProcessor(DataProcessor):
         df.columns = ["dx_code", "patient_id", "dx_name", "year"]
 
         super().__init__(df)
-
-

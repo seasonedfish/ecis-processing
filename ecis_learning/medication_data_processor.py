@@ -34,11 +34,19 @@ class MedicationDataProcessor(DataProcessor):
             "Soarian",
         )
 
-        super().__init__(pd.concat([df_allscripts, df_epic, df_soarian], ignore_index=True))
+        super().__init__(
+            pd.concat([df_allscripts, df_epic, df_soarian], ignore_index=True)
+        )
 
     @staticmethod
     def get_initial_df(
-            json_file, time_key: str, id_key: str, name_key: str, code_key: str, status_key: str, source: str
+        json_file,
+        time_key: str,
+        id_key: str,
+        name_key: str,
+        code_key: str,
+        status_key: str,
+        source: str,
     ) -> pd.DataFrame:
         """
         Extract medication data from json into an initial, unprocessed DataFrame.
@@ -57,7 +65,9 @@ class MedicationDataProcessor(DataProcessor):
         df[time_key] = pd.DatetimeIndex(df[time_key]).year
 
         df_new: pd.DataFrame = df[[time_key, id_key, name_key]].copy()
-        df_new[name_key] = df_new[name_key].apply(lambda x: x[0:x.index(" ")] if " " in x else x)
+        df_new[name_key] = df_new[name_key].apply(
+            lambda x: x[0:x.index(" ")] if " " in x else x
+        )
         df_new["code"] = df[code_key] if code_key is not None else "NA"
         if status_key == "Active":
             # Special case for Epic data
@@ -69,5 +79,13 @@ class MedicationDataProcessor(DataProcessor):
         else:
             df_new["status"] = "NA"
         df_new["source"] = source
-        df_new.columns = ["year", "patient_id", "rx_name", "rx_code", "rx_status", "source"]
+
+        df_new.columns = [
+            "year",
+            "patient_id",
+            "rx_name",
+            "rx_code",
+            "rx_status",
+            "source",
+        ]
         return df_new

@@ -10,10 +10,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(
         description="Process diagnosis and medication data."
     )
-    parser.add_argument(
-        "DIRECTORY",
-        type=dir_path,
-        help="path to input directory")
+    parser.add_argument("DIRECTORY", type=dir_path, help="path to input directory")
     parser.add_argument(
         "-o",
         "--output",
@@ -35,13 +32,19 @@ def main():
 
     diagnosis_input = args.DIRECTORY / "Diagnoses" / "STC_dx.json"
     my_diagnosis_data_processor = DiagnosisDataProcessor(diagnosis_input)
-    diagnoses_df = my_diagnosis_data_processor.process_data(["dx_code", "dx_name"], "dx")
+    diagnoses_df = my_diagnosis_data_processor.process_data(
+        ["dx_code", "dx_name"], "dx"
+    )
 
-    allscripts_input = args.DIRECTORY / "Medications_Allscripts" / "STC_meds_alls_180710.json"
-    epic_input = args.DIRECTORY / "Medications_EPIC" / "STC_meds_e_180710.json"
-    soarian_input = args.DIRECTORY / "Medications_Soarian" / "STC_meds_soarian_180710.json"
-    my_medication_data_processor = MedicationDataProcessor(allscripts_input, epic_input, soarian_input)
-    medications_df = my_medication_data_processor.process_data(["rx_name", "rx_code", "source", "rx_status"], "rx")
+    medications_inputs = [
+        args.DIRECTORY / "Medications_Allscripts" / "STC_meds_alls_180710.json",
+        args.DIRECTORY / "Medications_EPIC" / "STC_meds_e_180710.json",
+        args.DIRECTORY / "Medications_Soarian" / "STC_meds_soarian_180710.json",
+    ]
+    my_medication_data_processor = MedicationDataProcessor(*medications_inputs)
+    medications_df = my_medication_data_processor.process_data(
+        ["rx_name", "rx_code", "source", "rx_status"], "rx"
+    )
 
     # Create new DataFrame from rows and save to csv
     df_processed = diagnoses_df.merge(medications_df, how="outer", on="patient_id")

@@ -29,7 +29,8 @@ class DataProcessor:
             self.append_values(
                 rows,
                 f"patient_id == @row[0] and (year == {current_year} or year == {current_year} + 1)",
-                columns)
+                columns,
+            )
 
         # NaN year case
         column_names.append(f"unknown_time_{suffix}")
@@ -46,8 +47,6 @@ class DataProcessor:
             else:
                 result = (
                     "#".join(map(str, values))
-                    for values in zip(
-                        *(interval_df[column] for column in columns)
-                    )
+                    for values in zip(*(interval_df[column] for column in columns))
                 )
                 row.append("; ".join(result))
