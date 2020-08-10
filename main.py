@@ -43,11 +43,9 @@ def main():
     my_medication_data_processor = MedicationDataProcessor(allscripts_input, epic_input, soarian_input)
     medications_df = my_medication_data_processor.process_data(["rx_name", "rx_code", "source", "rx_status"], "rx")
 
-    print(diagnoses_df)
-    print(medications_df)
     # Create new DataFrame from rows and save to csv
-    # df_processed: pd.DataFrame = pd.DataFrame(rows, columns=column_names)
-    # df_processed.to_csv(args.output, index=False)
+    df_processed = diagnoses_df.merge(medications_df, how="outer", on="patient_id")
+    df_processed.to_csv(args.output, index=False)
     print(f"Done! Processed data saved to {args.output}")
 
 
