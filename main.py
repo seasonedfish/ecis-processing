@@ -10,7 +10,11 @@ def parse_arguments():
     parser = argparse.ArgumentParser(
         description="Process diagnosis and medication data."
     )
-    parser.add_argument("DIRECTORY", type=dir_path, help="path to input directory")
+    parser.add_argument(
+        "DIRECTORY",
+        type=dir_path,
+        help="path to input directory"
+    )
     parser.add_argument(
         "-o",
         "--output",
