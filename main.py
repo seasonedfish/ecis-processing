@@ -33,6 +33,7 @@ def dir_path(path):
 
 def main():
     args = parse_arguments()
+
     diagnosis_input = args.DIRECTORY / "Diagnoses" / "STC_dx.json"
     my_diagnosis_data_processor = DiagnosisDataProcessor(diagnosis_input)
     diagnoses_df = my_diagnosis_data_processor.process_data(["dx_code", "dx_name"], "dx")

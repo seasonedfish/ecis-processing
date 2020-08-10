@@ -5,9 +5,8 @@ from typing import List
 class DataProcessor:
     def __init__(self, df):
         self.Data = df
-        print(self.Data)
 
-    def process_data(self, columns: List[str], prefix: str = ""):
+    def process_data(self, columns: List[str], suffix: str = ""):
         # Create rows for new DataFrame, one for each patient
         rows: List[list] = []
         patient_ids: List[str] = self.Data["patient_id"].unique()
@@ -23,23 +22,34 @@ class DataProcessor:
         column_names: List[str] = ["patient_id"]
         for current_year in range(earliest_year, latest_year + 1, 2):
             column_names.append(
-                f"{prefix}{current_year}–{current_year + 1}"
+                f"{current_year}–{current_year + 1}_{suffix}"
                 if current_year != latest_year
-                else f"{prefix}{latest_year}"
+                else f"{latest_year}_{suffix}"
             )
             for row in rows:
                 interval_df: pd.DataFrame = self.Data.query(
                     "patient_id == @row[0] and (year == @current_year or year == @current_year + 1)"
                 )
-                if interval_df.empty:
-                    row.append(None)
-                else:
-                    result = (
-                        "#".join(map(str, values))
-                        for values in zip(
-                            *(interval_df[column] for column in columns)
-                        )
-                    )
-                    row.append(";".join(result))
+                self.append_values(row, interval_df, columns)
 
+        # NaN year case
+        column_names.append(f"unknown_time_{suffix}")
+        for row in rows:
+            interval_df: pd.DataFrame = self.Data.query(
+                "patient_id == @row[0] and year.isnull()"
+            )
+            self.append_values(row, interval_df, columns)
         return pd.DataFrame(rows, columns=column_names)
+
+    @staticmethod
+    def append_values(row, df, columns):
+        if df.empty:
+            row.append(None)
+        else:
+            result = (
+                "#".join(map(str, values))
+                for values in zip(
+                    *(df[column] for column in columns)
+                )
+            )
+            row.append("; ".join(result))

@@ -21,7 +21,7 @@ class MedicationDataProcessor(DataProcessor):
             "Name",
             None,
             "Active",
-            "E"
+            "Epic"
         )
         df_soarian = self.get_initial_df(
             soarian_json_file,
@@ -30,7 +30,7 @@ class MedicationDataProcessor(DataProcessor):
             "GenericDrugName",
             "DrugCode",
             None,
-            "S",
+            "Soarian",
         )
 
         super().__init__(pd.concat([df_allscripts, df_epic, df_soarian], ignore_index=True))
@@ -57,7 +57,7 @@ class MedicationDataProcessor(DataProcessor):
 
         df_new: pd.DataFrame = df[[time_key, id_key, name_key]].copy()
         df_new[name_key] = df_new[name_key].apply(lambda x: x[0:x.index(" ")] if " " in x else x)
-        df_new["code"] = df[code_key] if code_key is not None else "N/A"
+        df_new["code"] = df[code_key] if code_key is not None else "NA"
         if status_key == "Active":
             # Special case for Epic data
             df_new["status"] = np.where(
@@ -66,7 +66,7 @@ class MedicationDataProcessor(DataProcessor):
         elif status_key is not None:
             df_new["status"] = df[status_key]
         else:
-            df_new["status"] = "N/A"
+            df_new["status"] = "NA"
         df_new["source"] = source
         df_new.columns = ["year", "patient_id", "rx_name", "rx_code", "rx_status", "source"]
         return df_new
