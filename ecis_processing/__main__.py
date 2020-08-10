@@ -2,8 +2,8 @@ import argparse
 import os
 import pathlib
 
-from ecis_processing.diagnosis_data_processor import DiagnosisDataProcessor
-from ecis_processing.medication_data_processor import MedicationDataProcessor
+from .diagnosis_data_processor import DiagnosisDataProcessor
+from .medication_data_processor import MedicationDataProcessor
 
 
 def parse_arguments():
