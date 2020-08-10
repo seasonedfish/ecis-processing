@@ -4,7 +4,15 @@ from .data_processor import DataProcessor
 
 
 class DiagnosisDataProcessor(DataProcessor):
+    """
+    Class that processes diagnosis data.
+    """
     def __init__(self, json_file):
+        """
+        Initializes a DiagnosisDataProcessor from json input
+
+        :param json_file: path to json file containing diagnosis data
+        """
         df: pd.DataFrame = pd.read_json(json_file)
         df = df.join(df["data"].apply(pd.Series))
         df["YEAR"] = pd.DatetimeIndex(df["DIAG_DATE"]).year

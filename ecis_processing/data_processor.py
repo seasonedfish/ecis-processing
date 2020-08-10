@@ -3,10 +3,19 @@ from typing import List
 
 
 class DataProcessor:
+    """
+    Class that processes medical data.
+    """
     def __init__(self, df):
         self.Data = df
 
-    def process_data(self, columns: List[str], suffix: str = ""):
+    def get_processed_data(self, columns: List[str], suffix: str = "") -> pd.DataFrame:
+        """
+        Returns a new, processed DataFrame from the DataProcessor's Data.
+
+        :param columns: which columns to get values from
+        :param suffix: string that is appended to the end of year ranges
+        """
         # Create rows for new DataFrame, one for each patient
         rows: List[list] = []
         patient_ids: List[str] = self.Data["patient_id"].unique()
@@ -38,7 +47,14 @@ class DataProcessor:
 
         return pd.DataFrame(rows, columns=column_names)
 
-    def append_values(self, rows, query, columns):
+    def append_values(self, rows: List[list], query: str, columns: List[str]) -> None:
+        """
+        Queries the Data with a boolean expression and appends the column values to every row.
+
+        :param rows: rows to append to
+        :param query: boolean expression to query the Data
+        :param columns: which columns to get values from
+        """
         for row in rows:
             interval_df: pd.DataFrame = self.Data.query(query)
 

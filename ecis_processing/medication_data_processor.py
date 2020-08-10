@@ -5,7 +5,17 @@ from .data_processor import DataProcessor
 
 
 class MedicationDataProcessor(DataProcessor):
+    """
+    Class that processes medication data.
+    """
     def __init__(self, allscripts_json_file, epic_json_file, soarian_json_file):
+        """
+        Initializes a MedicationDataProcessor from json input.
+
+        :param allscripts_json_file: path to json file containing Allscripts medication data
+        :param epic_json_file: path to json file containing Epic medication data
+        :param soarian_json_file: path to json file containing Soarian medication data
+        """
         df_allscripts = self.get_initial_df(
             allscripts_json_file,
             "LastUpDate",

@@ -36,7 +36,7 @@ def main():
 
     diagnosis_input = args.DIRECTORY / "Diagnoses" / "STC_dx.json"
     my_diagnosis_data_processor = DiagnosisDataProcessor(diagnosis_input)
-    diagnoses_df = my_diagnosis_data_processor.process_data(
+    diagnoses_df = my_diagnosis_data_processor.get_processed_data(
         ["dx_code", "dx_name"], "dx"
     )
 
@@ -46,7 +46,7 @@ def main():
         args.DIRECTORY / "Medications_Soarian" / "STC_meds_soarian_180710.json",
     ]
     my_medication_data_processor = MedicationDataProcessor(*medications_inputs)
-    medications_df = my_medication_data_processor.process_data(
+    medications_df = my_medication_data_processor.get_processed_data(
         ["rx_name", "rx_code", "source", "rx_status"], "rx"
     )
 
