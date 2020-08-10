@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "ecis-processing"
 version = "0.1.0"
-description = ""
+description = "A program that processes diagnosis and medication data "
 authors = ["Fisher Sun <fisher521.fs@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/tactlessfish/ecis-processing"
 
 [tool.poetry.dependencies]
 python = "^3.8"
