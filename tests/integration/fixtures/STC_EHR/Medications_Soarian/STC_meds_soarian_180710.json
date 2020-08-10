@@ -1,0 +1,74 @@
+{
+    "data": [
+        {
+            "DurationUnitString": null,
+            "StartDateTime": "2012\/04\/23 02:11:00.000000000",
+            "CalculatedStopDateTime": "2012\/04\/04 02:11:00.000000000",
+            "DrugCode": "00904627761",
+            "GenericDrugName": "QUEtiapine",
+            "Duration": null,
+            "mrn": "635425635",
+            "BrandDrugName": "QUEtiapine",
+            "MedOrderStatusDateTime": "2012\/04\/17 22:11:06.000000000",
+            "PAT_ID": "Z324563",
+            "RouteString": "ORAL",
+            "OrderAsWritten": "MAGNESIUM SULF 2 G\/50 ML NS  2G Pyxis Vend ZPYXISVEND"
+        },
+        {
+            "DurationUnitString": "Doses",
+            "StartDateTime": "2012\/06\/25 03:58:00.000000000",
+            "CalculatedStopDateTime": "2012\/06\/08 03:58:00.000000000",
+            "DrugCode": "00574006930",
+            "GenericDrugName": "GLUCOSE",
+            "Duration": 1,
+            "mrn": "635425635",
+            "BrandDrugName": "GLUTOSE 15",
+            "MedOrderStatusDateTime": "2012\/11\/17 22:11:06.000000000",
+            "PAT_ID": "Z324563",
+            "RouteString": "ORAL",
+            "OrderAsWritten": "hydrALAZINE 10 MG = 0.5 ML INTRAVENOUS VIAL ONETIME for 1 Doses"
+        },
+        {
+            "DurationUnitString": "Days",
+            "StartDateTime": "2012\/07\/17 10:50:00.000000000",
+            "CalculatedStopDateTime": "2012\/09\/17 07:30:00.000000000",
+            "DrugCode": "00008092355",
+            "GenericDrugName": "PANTOPRAZOLE",
+            "Duration": 30,
+            "mrn": "635425635",
+            "BrandDrugName": "Protonix",
+            "MedOrderStatusDateTime": "2013\/08\/45 22:11:06.000000000",
+            "PAT_ID": "Z324563",
+            "RouteString": "INTRAVENOUS",
+            "OrderAsWritten": "INSULIN LISPRO (HumaLOG) Sliding Scale SUBCUTANEOUS VIAL ACHS for 30 Days, Clinician Dir:WHILE EATING INTERCHANGE FOR ASPART INSULIN"
+        },
+        {
+            "DurationUnitString": null,
+            "StartDateTime": "2012\/11\/17 18:02:00.000000000",
+            "CalculatedStopDateTime": "2013\/08\/17 18:02:00.000000000",
+            "DrugCode": "63739043401",
+            "GenericDrugName": "ASPIRIN, CHILDREN'S",
+            "Duration": null,
+            "mrn": "520125364",
+            "BrandDrugName": "ASPIRIN, CHILDREN'S",
+            "MedOrderStatusDateTime": "2012\/11\/20 05:12:14.000000000",
+            "PAT_ID": "Z273652",
+            "RouteString": "ORAL",
+            "OrderAsWritten": "ATORVASTATIN (LIPITOR) 40 MG = 1 TABLET Pyxis Vend ZPYXISVEND"
+        },
+        {
+            "DurationUnitString": "Days",
+            "StartDateTime": "2012\/06\/12 12:32:00.000000000",
+            "CalculatedStopDateTime": "2013\/07\/17 09:00:00.000000000",
+            "DrugCode": "50111099001",
+            "GenericDrugName": "ERGOCALCIFEROL",
+            "Duration": 30,
+            "mrn": "520125364",
+            "BrandDrugName": "VITAMIN D",
+            "MedOrderStatusDateTime": "2015\/07\/20 05:12:14.000000000",
+            "PAT_ID": "Z273652",
+            "RouteString": "ORAL",
+            "OrderAsWritten": "ASPIRIN, CHILDREN'S 81 MG = 1 TAB CHW ORAL TAB CHW DAILY (0900) for 30 Days"
+        }
+    ]
+}
