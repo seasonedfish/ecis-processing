@@ -1,5 +1,6 @@
-from .data_processor import DataProcessor
 import pandas as pd
+
+from .data_processor import DataProcessor
 
 
 class DiagnosisDataProcessor(DataProcessor):

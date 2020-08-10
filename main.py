@@ -1,7 +1,6 @@
-import pandas as pd
 import argparse
-import pathlib
 import os
+import pathlib
 
 from ecis_learning.diagnosis_data_processor import DiagnosisDataProcessor
 from ecis_learning.medication_data_processor import MedicationDataProcessor

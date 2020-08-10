@@ -1,6 +1,7 @@
-from .data_processor import DataProcessor
 import numpy as np
 import pandas as pd
+
+from .data_processor import DataProcessor
 
 
 class MedicationDataProcessor(DataProcessor):
