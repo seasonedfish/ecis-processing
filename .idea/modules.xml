@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ecis-learning.iml" filepath="$PROJECT_DIR$/.idea/ecis-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ecis-processing.iml" filepath="$PROJECT_DIR$/.idea/ecis-processing.iml" />
     </modules>
   </component>
 </project>

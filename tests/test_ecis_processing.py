@@ -1,4 +1,4 @@
-from ecis_learning import __version__
+from ecis_processing import __version__
 
 
 def test_version():
