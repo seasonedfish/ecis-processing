@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ecis-processing"
-version = "0.2.0"
+version = "0.3.0"
 description = "A program that processes diagnosis and medication data "
 authors = ["Fisher Sun <fisher521.fs@gmail.com>"]
 license = "MIT"
@@ -15,7 +15,7 @@ pandas = "^1.0.5"
 pytest = "^5.2"
 
 [tool.poetry.scripts]
-ecis-processing = "ecis_processing:main"
+ecis-processing = "ecis_processing.__main__:main"
 
 [build-system]
 requires = ["poetry>=0.12"]
