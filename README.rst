@@ -3,7 +3,7 @@ ECIS Data Processing
 
 .. code-block::
 
-    usage: main.py [-h] [-o OUTPUT] DIRECTORY
+    usage: ecis-processing [-h] [-o OUTPUT] DIRECTORY
 
     Process diagnosis and medication data.
 
