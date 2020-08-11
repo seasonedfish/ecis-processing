@@ -8,6 +8,7 @@ from .medication_data_processor import MedicationDataProcessor
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
+        prog="ecis-processing",
         description="Process diagnosis and medication data."
     )
     parser.add_argument(
