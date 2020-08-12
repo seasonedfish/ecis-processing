@@ -12,7 +12,7 @@ class DataProcessor:
 
     def get_processed_data(self, columns: List[str], suffix: str = "") -> pd.DataFrame:
         """
-        Returns a new, processed DataFrame from the DataProcessor's Data.
+        Returns a new, processed DataFrame from the DataProcessor's data.
 
         :param columns: which columns to get values from
         :param suffix: string that is appended to the end of year ranges
@@ -50,10 +50,10 @@ class DataProcessor:
 
     def append_values(self, rows: List[list], query: str, columns: List[str]) -> None:
         """
-        Queries the Data with a boolean expression and appends the column values to every row.
+        Queries the data with a boolean expression and appends the column values to every row.
 
         :param rows: rows to append to
-        :param query: boolean expression to query the Data
+        :param query: boolean expression to query the data
         :param columns: which columns to get values from
         """
         for row in rows:
