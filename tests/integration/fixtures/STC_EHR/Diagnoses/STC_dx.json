@@ -1,76 +1,76 @@
 {
-  "data" : [
-    {
-      "DX_CODE" : "427.31",
-      "DIAG_DATE" : "2012/03/25 00:00:00.000000000",
-      "P_ID" : "Z324563",
-      "DX_NM" : "Atrial fibrillation (CMS/HCC)",
-      "P_MRN_ID" : "000167426",
-      "E_ID" : null
-    },
-    {
-      "DX_CODE" : "H53.9",
-      "DIAG_DATE" : "2014/07/17 00:00:00.000000000",
-      "P_ID" : "Z324563",
-      "DX_NM" : "Visual disturbance",
-      "P_MRN_ID" : "000167426",
-      "E_ID" : null
-    },
-    {
-      "DX_CODE" : "725",
-      "DIAG_DATE" : "2009/11/10 00:00:00.000000000",
-      "P_ID" : "Z324563",
-      "DX_NM" : "Polymyalgia rheumatica (CMS/HCC)",
-      "P_MRN_ID" : "000167426",
-      "E_ID" : 12019823760
-    },
-    {
-      "DX_CODE" : "725",
-      "DIAG_DATE" : "2011/08/11 00:00:00.000000000",
-      "P_ID" : "Z324563",
-      "DX_NM" : "Polymyalgia rheumatica (CMS/HCC)",
-      "P_MRN_ID" : "000167426",
-      "E_ID" : 12019864802
-    },
-    {
-      "DX_CODE" : null,
-      "DIAG_DATE" : "2004/10/15 00:00:00.000000000",
-      "P_ID" : "Z273652",
-      "DX_NM" : "Disorder of bone and cartilage",
-      "P_MRN_ID" : "000256352",
-      "E_ID" : 12037161784
-    },
-    {
-      "DX_CODE" : "272.0",
-      "DIAG_DATE" : "2006/09/21 00:00:00.000000000",
-      "P_ID" : "Z273652",
-      "DX_NM" : "Pure hypercholesterolemia",
-      "P_MRN_ID" : "000256352",
-      "E_ID" : 12019536756
-    },
-    {
-      "DX_CODE" : "729.81",
-      "DIAG_DATE" : "2012/11/10 00:00:00.000000000",
-      "P_ID" : "Z273652",
-      "DX_NM" : "Swelling of limb",
-      "P_MRN_ID" : "000256352",
-      "E_ID" : 12097364853
-    },
-    {
-      "DX_CODE" : "446.5",
-      "DIAG_DATE" : "2010/07/11 00:00:00.000000000",
-      "P_ID" : "Z273652",
-      "DX_NM" : "Giant cell arteritis (CMS/HCC)",
-      "P_MRN_ID" : "000256352",
-      "E_ID" : 12028745143
-    },
-    {
-      "DX_CODE" : "725",
-      "DIAG_DATE" : "2011/11/10 00:00:00.000000000",
-      "P_ID" : "Z273652",
-      "DX_NM" : "Polymyalgia rheumatica (CMS/HCC)",
-      "P_MRN_ID" : "000256352",
-      "E_ID" : 12256152437
-    }
-  ]
+    "data": [
+        {
+            "DX_CODE": "427.31",
+            "DIAG_DATE": "2012/03/25 00:00:00.000000000",
+            "P_ID": "Z324563",
+            "DX_NM": "Atrial fibrillation (CMS/HCC)",
+            "P_MRN_ID": "000167426",
+            "E_ID": null
+        },
+        {
+            "DX_CODE": "H53.9",
+            "DIAG_DATE": "2014/07/17 00:00:00.000000000",
+            "P_ID": "Z324563",
+            "DX_NM": "Visual disturbance",
+            "P_MRN_ID": "000167426",
+            "E_ID": null
+        },
+        {
+            "DX_CODE": "725",
+            "DIAG_DATE": "2009/11/10 00:00:00.000000000",
+            "P_ID": "Z324563",
+            "DX_NM": "Polymyalgia rheumatica (CMS/HCC)",
+            "P_MRN_ID": "000167426",
+            "E_ID": 12019823760
+        },
+        {
+            "DX_CODE": "725",
+            "DIAG_DATE": "2011/08/11 00:00:00.000000000",
+            "P_ID": "Z324563",
+            "DX_NM": "Polymyalgia rheumatica (CMS/HCC)",
+            "P_MRN_ID": "000167426",
+            "E_ID": 12019864802
+        },
+        {
+            "DX_CODE": null,
+            "DIAG_DATE": "2004/10/15 00:00:00.000000000",
+            "P_ID": "Z273652",
+            "DX_NM": "Disorder of bone and cartilage",
+            "P_MRN_ID": "000256352",
+            "E_ID": 12037161784
+        },
+        {
+            "DX_CODE": "272.0",
+            "DIAG_DATE": "2006/09/21 00:00:00.000000000",
+            "P_ID": "Z273652",
+            "DX_NM": "Pure hypercholesterolemia",
+            "P_MRN_ID": "000256352",
+            "E_ID": 12019536756
+        },
+        {
+            "DX_CODE": "729.81",
+            "DIAG_DATE": "2012/11/10 00:00:00.000000000",
+            "P_ID": "Z273652",
+            "DX_NM": "Swelling of limb",
+            "P_MRN_ID": "000256352",
+            "E_ID": 12097364853
+        },
+        {
+            "DX_CODE": "446.5",
+            "DIAG_DATE": "2010/07/11 00:00:00.000000000",
+            "P_ID": "Z273652",
+            "DX_NM": "Giant cell arteritis (CMS/HCC)",
+            "P_MRN_ID": "000256352",
+            "E_ID": 12028745143
+        },
+        {
+            "DX_CODE": "725",
+            "DIAG_DATE": "2011/11/10 00:00:00.000000000",
+            "P_ID": "Z273652",
+            "DX_NM": "Polymyalgia rheumatica (CMS/HCC)",
+            "P_MRN_ID": "000256352",
+            "E_ID": 12256152437
+        }
+    ]
 }
