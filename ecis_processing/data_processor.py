@@ -6,6 +6,7 @@ class DataProcessor:
     """
     Class that processes medical data.
     """
+
     def __init__(self, df):
         self.data = df
 
