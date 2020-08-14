@@ -17,36 +17,15 @@ class DataProcessor:
         :param columns: which columns to get values from
         :param suffix: string that is appended to the end of year ranges
         """
-        # Create rows for new DataFrame, one for each patient
-        rows: List[list] = []
-        patient_ids: List[str] = self.data["patient_id"].unique()
-        for patient_id in patient_ids:
-            rows.append([patient_id])
+        return (self.data.groupby(["patient_id", pd.Grouper(freq="2Y", key="date")])
+                .agg(lambda column: "#".join(column))
+                .sum()
+                .unstack(fill_value=""))
 
-        # Get earliest year and latest year
-        earliest_year: int = int(min(self.data["year"]))
-        latest_year: int = int(max(self.data["year"]))
-
-        # Iterate through year intervals and add data to rows
-        # Also get names of columns
-        column_names: List[str] = ["patient_id"]
-        for current_year in range(earliest_year, latest_year + 1, 2):
-            column_names.append(
-                f"{current_year}–{current_year + 1}_{suffix}"
-                if current_year != latest_year
-                else f"{latest_year}_{suffix}"
-            )
-            self.append_values(
-                rows,
-                f"patient_id == @row[0] and (year == {current_year} or year == {current_year} + 1)",
-                columns,
-            )
-
-        # NaN year case
-        column_names.append(f"unknown_time_{suffix}")
-        self.append_values(rows, "patient_id == @row[0] and year.isnull()", columns)
-
-        return pd.DataFrame(rows, columns=column_names)
+    @staticmethod
+    def combine(df):
+        df["value"] = "#".join([df["dx_code"], df["dx_name"]])
+        return df
 
     def append_values(self, rows: List[list], query: str, columns: List[str]) -> None:
         """

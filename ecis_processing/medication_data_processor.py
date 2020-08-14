@@ -73,7 +73,7 @@ class MedicationDataProcessor(DataProcessor):
         """
         df: pd.DataFrame = pd.read_json(json_file)
         df = df.join(df["data"].apply(pd.Series))
-        df[time_key] = pd.to_datetime(df[time_key], errors="coerce").dt.year
+        df[time_key] = pd.to_datetime(df[time_key], errors="coerce")
 
         df_new: pd.DataFrame = df[[time_key, id_key, name_key]].copy()
         df_new[name_key] = df_new[name_key].apply(
@@ -92,7 +92,7 @@ class MedicationDataProcessor(DataProcessor):
         df_new["source"] = source
 
         df_new.columns = [
-            "year",
+            "date",
             "patient_id",
             "rx_name",
             "rx_code",

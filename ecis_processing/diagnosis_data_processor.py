@@ -16,8 +16,8 @@ class DiagnosisDataProcessor(DataProcessor):
         """
         df: pd.DataFrame = pd.read_json(json_file)
         df = df.join(df["data"].apply(pd.Series))
-        df["YEAR"] = pd.to_datetime(df["DIAG_DATE"], errors="coerce").dt.year
+        df["date"] = pd.to_datetime(df["DIAG_DATE"], errors="coerce")
         df = df.drop(columns=["data", "P_MRN_ID", "E_ID", "DIAG_DATE"])
-        df.columns = ["dx_code", "patient_id", "dx_name", "year"]
+        df.columns = ["dx_code", "patient_id", "dx_name", "date"]
 
         super().__init__(df)
