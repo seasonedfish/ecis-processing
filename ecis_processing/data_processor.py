@@ -30,5 +30,4 @@ class DataProcessor:
         df_new.rename(columns=lambda date: f"{date.year - 1}-{date.year}_{suffix}", inplace=True)
 
         df_new[f"unknown_time_{suffix}"] = nat_df
-        print(df_new)
         return df_new
