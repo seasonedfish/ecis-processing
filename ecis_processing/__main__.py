@@ -37,11 +37,11 @@ def main():
 
     diagnosis_input = args.DIRECTORY / "Diagnoses" / "STC_dx.json"
     my_diagnosis_data_processor = DiagnosisDataProcessor(diagnosis_input)
-    print(my_diagnosis_data_processor.data)
+    # print(my_diagnosis_data_processor.data)
     diagnoses_df = my_diagnosis_data_processor.get_processed_data(
         ["dx_code", "dx_name"], "dx"
     )
-    print(diagnoses_df)
+    # print(diagnoses_df)
 
     medications_inputs = [
         args.DIRECTORY / "Medications_Allscripts" / "STC_meds_alls_180710.json",
@@ -55,7 +55,7 @@ def main():
 
     # Create new DataFrame from rows and save to csv
     df_processed = diagnoses_df.merge(medications_df, how="outer", on="patient_id")
-    print(df_processed)
+    # print(df_processed)
     df_processed.to_csv("processed.csv")
     print(f"Done! Processed data saved to {args.output}")
 
