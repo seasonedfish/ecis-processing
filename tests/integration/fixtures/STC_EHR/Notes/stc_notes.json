@@ -1,0 +1,43 @@
+{
+    "data": [
+        {
+            "CONTACT_DT": "2017/02/17 00:00:00.000000000",
+            "P_ID": "Z324563",
+            "N_PURPOSE": "NORMAL",
+            "INPAT_DATA_ID": "12398365",
+            "N_CSN_ID": 103472015,
+            "AMB_NOTE_YN": "N",
+            "P_ENC_CSN_ID": 12089198527,
+            "DATE_OF_SERVIC": "2017/04/05 17:51:00.000000000",
+            "N_TYPE2": "Plan of Care",
+            "NOTE_TEXTS": "Problem: Patient Care Overview  Goal: Plan of Care Review  Outcome: Ongoing (interventions implemented as appropriate)",
+            "N_ID": "100073649"
+        },
+        {
+            "CONTACT_DT": "2017/11/12 00:00:00.000000000",
+            "P_ID": "Z324563",
+            "N_PURPOSE": "NORMAL",
+            "INPAT_DATA_ID": "12338765",
+            "N_CSN_ID": 487291062,
+            "AMB_NOTE_YN": "N",
+            "P_ENC_CSN_ID": 93672109974,
+            "DATE_OF_SERVIC": "2017/11/12 21:40:00.000000000",
+            "N_TYPE2": "Plan of Care",
+            "NOTE_TEXTS": "Problem: Patient Care Overview  Goal: Plan of Care Review   Plan Of Care Reviewed With patient   Outcome Evaluation   Outcome Summary/Plan Rec'd D/C to pulmonary rehabilitation facility vs. home with assistance and home PT once medically stable pending progress with PT.",
+            "N_ID": "937625178"
+        },
+        {
+            "CONTACT_DT": "2016/10/07 00:00:00.000000000",
+            "P_ID": "Z273652",
+            "N_PURPOSE": "NORMAL",
+            "INPAT_DATA_ID": "87263602",
+            "N_CSN_ID": 736525736,
+            "AMB_NOTE_YN": "N",
+            "P_ENC_CSN_ID": 78362539974,
+            "DATE_OF_SERVIC": "2016/10/07 07:33:00.000000000",
+            "N_TYPE2": "Plan of Care",
+            "NOTE_TEXTS": "Problem: Patient Care Overview  Goal: Plan of Care Review  Outcome: Ongoing (interventions implemented as appropriate)",
+            "N_ID": "837625337"
+        }
+    ]
+}
