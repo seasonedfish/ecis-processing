@@ -53,7 +53,7 @@ def main():
 
     # Create new DataFrame from rows and save to csv
     df_processed = diagnoses_df.merge(medications_df, how="outer", on="patient_id")
-    df_processed.to_csv("processed.csv")
+    df_processed.to_csv(args.output)
     print(f"Done! Processed data saved to {args.output}")
 
 
