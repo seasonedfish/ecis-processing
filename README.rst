@@ -3,8 +3,10 @@ ECIS Data Processing
 ====================
 .. image:: https://img.shields.io/pypi/v/ecis-processing
     :alt: PyPI
+    :target: https://pypi.org/project/ecis-processing/
 .. image:: https://img.shields.io/lgtm/alerts/github/tactlessfish/ecis-processing
     :alt: LGTM Alerts
+    :target: https://lgtm.com/projects/g/tactlessfish/ecis-processing?mode=list
 
 Usage
 =====
