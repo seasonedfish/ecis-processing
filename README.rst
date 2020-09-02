@@ -1,8 +1,10 @@
 ====================
 ECIS Data Processing
 ====================
-.. image:: https://img.shields.io/pypi/v/ecis-processing   :alt: PyPI
-.. image:: https://img.shields.io/lgtm/alerts/github/tactlessfish/ecis-processing   :alt: LGTM Alerts
+.. image:: https://img.shields.io/pypi/v/ecis-processing
+    :alt: PyPI
+.. image:: https://img.shields.io/lgtm/alerts/github/tactlessfish/ecis-processing
+    :alt: LGTM Alerts
 
 Usage
 =====
