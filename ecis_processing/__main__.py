@@ -4,6 +4,8 @@ import pathlib
 
 from .diagnosis_data_processor import DiagnosisDataProcessor
 from .medication_data_processor import MedicationDataProcessor
+from .patient_data_processor import PatientDataProcessor
+from .note_data_processor import NoteDataProcessor
 
 
 def parse_arguments():
@@ -51,8 +53,35 @@ def main():
         ["rx_name", "rx_code", "source", "rx_status"], "rx"
     )
 
+    patients_input = args.DIRECTORY / "Patients" / "patients.json"
+    my_patient_data_processor = PatientDataProcessor(patients_input)
+    patients_df = my_patient_data_processor.data
+
+    my_clinical_ndp = NoteDataProcessor(
+        args.DIRECTORY / "Notes" / "stc_notes.json",
+        "P_ID",
+        "N_TYPE2",
+        "DATE_OF_SERVIC",
+        "NOTE_TEXTS"
+    )
+    notes_df = my_clinical_ndp.get_processed_data(["note_type", "date", "note_text"], suffix="clinical_note")
+
+    my_radiology_ndp = NoteDataProcessor(
+        args.DIRECTORY / "Radiology" / "radiology_notes.json",
+        "PATID",
+        None,
+        "NOTE_ENC_DATE",
+        "NOTE_FULL_TEXT"
+    )
+    radiology_df = my_radiology_ndp.get_processed_data(["note_type", "date", "note_text"], suffix="radiology_note")
+
     # Create new DataFrame from rows and save to csv
-    df_processed = diagnoses_df.merge(medications_df, how="outer", on="patient_id")
+    df_processed = diagnoses_df \
+        .merge(medications_df, how="outer", on="patient_id") \
+        .merge(patients_df, how="outer", on="patient_id") \
+        .merge(notes_df, how="outer", on="patient_id") \
+        .merge(radiology_df, how="outer", on="patient_id")
+
     df_processed.to_csv(args.output)
     print(f"Done! Processed data saved to {args.output}")
 
