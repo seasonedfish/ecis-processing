@@ -35,5 +35,5 @@ class NoteDataProcessor(DataProcessor):
         processed["data"] = self.data[columns].apply(lambda row: "@##@".join(row.values.astype(str)), axis=1)
         processed = processed.groupby("patient_id")["data"].apply("@@@@".join)
 
-        return pd.DataFrame({"patient_id": processed.index, suffix:processed.values})
+        return pd.DataFrame({"patient_id": processed.index, suffix: processed.values})
 
