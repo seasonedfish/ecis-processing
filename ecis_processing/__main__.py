@@ -94,6 +94,7 @@ def main():
     df_processed: pd.DataFrame = functools.reduce(
         lambda left, right: pd.merge(left, right, how="outer", on="patient_id"), dfs
     )
+    df_processed = df_processed.set_index("patient_id")
 
     df_processed.to_csv(args.output)
     print(f"Done! Processed data saved to {args.output}")
