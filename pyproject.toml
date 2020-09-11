@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ecis-processing"
-version = "0.5.0"
+version = "0.6.0"
 description = "A program that processes diagnosis and medication data "
 authors = ["Fisher Sun <fisher521.fs@gmail.com>"]
 license = "MIT"
