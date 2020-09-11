@@ -33,7 +33,7 @@ class NoteDataProcessor(DataProcessor):
     def get_processed_data(self, columns: List[str], suffix: str = "") -> pd.DataFrame:
         processed = self.data.copy()
         processed["date"] = processed["date"].dt.strftime("%Y-%m-%d")
-        processed["data"] = processed[columns].apply(lambda row: "@##@".join(row.values.astype(str)), axis=1)
+        processed["data"] = processed[columns].apply(lambda row: "#@@#".join(row.values.astype(str)), axis=1)
         processed = processed.groupby("patient_id")["data"].apply("@@@@".join)
 
         return pd.DataFrame({"patient_id": processed.index, suffix: processed.values})
