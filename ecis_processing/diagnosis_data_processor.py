@@ -1,9 +1,9 @@
 import pandas as pd
 
-from .data_processor import DataProcessor
+from .interval_data_processor import IntervalDataProcessor
 
 
-class DiagnosisDataProcessor(DataProcessor):
+class DiagnosisDataProcessor(IntervalDataProcessor):
     """
     Class that processes diagnosis data.
     """

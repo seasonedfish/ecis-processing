@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+            "Age": 64,
+            "P_FIRST_NAME": "Frank",
+            "DOB": "1954\/03\/18 00:00:00.000000000",
+            "P_ID": "Z324563",
+            "P_GENDER": "Male",
+            "P_MRN_ID": "520048927",
+            "P_RACE": "White",
+            "P_LAST_NAME": "Kohls",
+            "P_ETHNICITY": null
+        },
+        {
+            "Age": 45,
+            "P_FIRST_NAME": "Sarah",
+            "DOB": "1973\/11\/08 00:00:00.000000000",
+            "P_ID": "Z273652",
+            "P_GENDER": "Female",
+            "P_MRN_ID": "000154372",
+            "P_RACE": "White",
+            "P_LAST_NAME": "Gordan",
+            "P_ETHNICITY": "Not Hispanic or Latino"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "ORDID": 92763231,
+            "RESULTS_NOTE_ENC_ID": 26378262,
+            "NOTEID": "92837621",
+            "NOTE_FULL_TEXT": "        Department: Memorial Campus   Conclusion:   Right Side:   Normal venous duplex of the proximal deep veins.      Left Side:   Normal venous duplex of the proximal deep veins.   Superficial thrombophlebitis was identified in the  basilic vein in upper forearm around the pic line, and extends up to the deep vein system.",
+            "NOTE_ENC_DATE": "2015/11/23 00:00:00.000000000",
+            "PATID": "Z324563"
+        },
+        {
+            "ORDID": 36478270,
+            "RESULTS_NOTE_ENC_ID": 78273639,
+            "NOTEID": "925362471",
+            "NOTE_FULL_TEXT": "        Department: University Campus   Conclusion:            Right Side:   The  common femoral vein, femoral vein, popliteal vein, posterior tibial veins, peroneal veins and proximal greater saphenous vein appeared to be  patent and without thrombosis.           Left Side:   The  common femoral vein, femoral vein, popliteal vein, posterior tibial veins, peroneal veins and proximal greater saphenous vein appeared to be patent and without thrombosis. ",
+            "NOTE_ENC_DATE": "2016/05/17 00:00:00.000000000",
+            "PATID": "Z273652"
+        }
+    ]
+}

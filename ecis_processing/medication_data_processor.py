@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
 
-from .data_processor import DataProcessor
+from .interval_data_processor import IntervalDataProcessor
 
 
-class MedicationDataProcessor(DataProcessor):
+class MedicationDataProcessor(IntervalDataProcessor):
     """
     Class that processes medication data.
     """
