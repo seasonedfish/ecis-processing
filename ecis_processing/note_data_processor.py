@@ -3,6 +3,7 @@ from typing import List
 import pandas as pd
 
 from .data_processor import DataProcessor
+from .data_objects import Note
 
 
 class NoteDataProcessor(DataProcessor):
@@ -32,8 +33,8 @@ class NoteDataProcessor(DataProcessor):
 
     def get_processed_data(self, columns: List[str], suffix: str = "") -> pd.DataFrame:
         processed = self.data.copy()
-        processed["data"] = self.data[columns].apply(lambda row: "@##@".join(row.values.astype(str)), axis=1)
-        processed = processed.groupby("patient_id")["data"].apply("@@@@".join)
+        processed["data"] = self.data[columns].apply(lambda row: Note(*row), axis=1)
+        processed = processed.groupby("patient_id")["data"].aggregate(lambda x: list(x))
 
         return pd.DataFrame({"patient_id": processed.index, suffix: processed.values})
 
